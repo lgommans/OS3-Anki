@@ -87,3 +87,46 @@ What is CISC?	Complex Instruction Set Computer
 What is RISC?	Reduced Instruction Set Computer
 Is x86 CISC or RISC?	CISC
 What steps does a CPU constantly cycle through?	Fetch, decode, execute.
+How many general registers does the Intel 8008 have?	5 (A, B, C, D, E)
+How many indirect addressing registers does the Intel 8008 have?	2 (H and L)
+Which flags does the status register on the Intel 8008 have?	Carry, Parity, Zero, Sign
+How many bits are the General registers on the Intel 8008?	8
+How big are the Indirect addressing registers on the Intel 8008?	8-bit when used along, 14-bit when paired
+How many bits is the program counter on the Intel 8008?	14
+How many push-down stack registers does the Intel 8008 have and how big are they?	7 14-bit registers. These are used by the program counter
+How many bits is the status register on the Intel 8008?	8
+How many General registers does the Intel 8080 have?	5 (A, B, C, D, E)
+How many Indirect addressing registers does the Intel 8080 have and how big are they?	2 registers, both 8 bits. Can be paired for 16 bits
+What status register flag was added to the existing ones in the Intel 8080?	Adjust
+How big are the general registers in the Intel 8080?	8 bit, BC and DE can be concatenated to act as 16-bit registers
+How big is the program counter in the Intel 8080?	16-bit
+How big is the stack pointer in the Intel 8080?	16-bit
+What are the components of the Intel 8008?	General registers, Indirect addressing registers, program counter (+ push down stack), and status register
+What are the components of the Intel 8080?	General registers, Indirect addressing registers, program counter, stack pointer, status register
+What are the components in the Intel 8086?	General registers, Index register, Program counter, Status register, segment registers
+How many General registers does the Intel 8086 have?	4 (AX, BX, CX, DX)
+How many index registers does the Intel 8086 have?	4 (SI, DI, BP, SP)
+What status register flags were added to the Intel 8086?	T (trap), I (interrupt), D (direction, for string processing), O (overflow, a kind of 'signed carry')
+How many segment registers does the intel 8086 have?	4 (CS (Code Segment), DS (Data Segment), ES (Extra Segment), SS (Stack Segment))
+How is the address space extended in the Intel 8086?	By using an extra 4 bits as padding at the start of the index registers and the end of the segment registers. These can then be added together
+What is A20 gate?	When you try to add 0FFFF to FFFF0 (padding of index and segment registers respectively in Intel 8086) it can wrap around. Programmers used this for their code and it is an issue now since the registers have increased in size
+How many general registers does the Intel 80386 have?	4 (EAX, EBX, ECX, EDX)
+How many Index registers does the Intel 80386 have?	4 (ESI, EDI, EBP, ESP)
+How big are the General registers in the Intel 80386?	32-bit
+How big are the Index registers in the Intel 80386?	32-bit
+What chip introduced the IA-32 Instruction Set Architecture (ISA)?	Intel 80386
+How big is the Intel 80386's instruction pointer?	32-bit?
+How big are the Intel 80386's segment registers?	16-bit
+What is different about the Intel 80386 Segment registers?	They are indices into a table descrbibing the segment base address (32-bit) and segment limit (20-bit)
+How big is the status register in the Intel 80386?	32-bit
+What are the elements in the Intel 80386?	General register, Index registers, Instruction pointer, Segment registesr, Status register
+How many General registers does the X86-64 have?	22 (RAX, RBX, RCX, RDX, R8-R15)
+How are they low order 32/16/8 bits addressable in X86-64?	Example for RAX: EAX/AX/AL. Example R8: R8D/R8W/R8B
+How many Index registers does the X86-64 have?	2, RSI and RDI
+How many pointer registers does the X86-64 have?	2: RBP, TSP
+What segment registers are deprecated in X86-64 'long mode'?	All except FS, GS and some protection flags for the others
+How big are the floating point registers in X86-64?	80-bit
+How big are are the MMX (MultiMedia eXtensions) in X86-64?	64-bit (FPR0-FPR7)
+How big are the SIMD (Single Instruction Multiple Data) in X86-64?	128-bit (XMM0-XMM7)
+How big are the AVX (Advanced Vector Extenstions) in X86-64?	256-bit (YMM0-YMM15) and 512-bit (ZMM0-ZMM31)
+What modes are supported by X86-64?	Long mode (64-bit OS) with submodes:<div><br /></div><div>64-bit mode (flat address space)</div><div><br /></div><div>Compatibility mode (for 16- or 32-bit protected mode programs)</div><div><br /></div><div><br /><div><div><br /></div><div><br /></div><div>Legacy mode (32-bit OS) with submodes:</div><div><br /></div><div>Protected mode (virtual memory enabled)</div><div><br /></div><div>Virtual 8086 mode ('real mode', but still protected)</div><div><br /></div><div>Real mode (when powered on; real legacy)<br /><div><br /></div></div></div></div>
