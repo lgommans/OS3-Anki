@@ -130,3 +130,18 @@ How big are are the MMX (MultiMedia eXtensions) in X86-64?	64-bit (FPR0-FPR7)
 How big are the SIMD (Single Instruction Multiple Data) in X86-64?	128-bit (XMM0-XMM7)
 How big are the AVX (Advanced Vector Extenstions) in X86-64?	256-bit (YMM0-YMM15) and 512-bit (ZMM0-ZMM31)
 What modes are supported by X86-64?	Long mode (64-bit OS) with submodes:<div><br /></div><div>64-bit mode (flat address space)</div><div><br /></div><div>Compatibility mode (for 16- or 32-bit protected mode programs)</div><div><br /></div><div><br /><div><div><br /></div><div><br /></div><div>Legacy mode (32-bit OS) with submodes:</div><div><br /></div><div>Protected mode (virtual memory enabled)</div><div><br /></div><div>Virtual 8086 mode ('real mode', but still protected)</div><div><br /></div><div>Real mode (when powered on; real legacy)<br /><div><br /></div></div></div></div>
+What units does a CPU have?	registers (local memory), ALU (arithmetic logic unit), CU (control unit: hardwired, microprogrammed), MMU (memory management unit for external memory) and caches
+Which assembly syntax flavours are there?	Intel and AT&amp;T
+How to load 4 into EAX in Intel syntax?	mov eax, 4
+How to load 4 into EAX in AT&amp;T syntax?	mov $4, %eax
+What is an opcode?	intructions working on operands
+How large is a byte, word, dword, qword, dqword/octaword?	byte: 8 bits<div>word: 16 bits</div><div>doubleword: 32 bits</div><div>quadword: 64 bits</div><div>doublequadword/octaword: 128 bits</div>
+What is 256 in little-endian hexadecimal?	0x0001<div>If 0xFF is 255 (same as 0x00FF), then 0x0100 is 256. Convert that to little-endian by swapping around whole bytes: 01 00 -&gt; 00 01.</div>
+What does the call instruction do?	The call instruction pushes the current code location onto memory, then performs a jump to the code location indicated by the operand. Unlike normal jumps, call saves the location to return to when the subroutine completes.
+What does the ret instruction do?	It pops a code location off of the memory stack and returns there. See also the 'call instruction' card.
+How can one call a procedure in a shared library?	This will jump outside your own code and you need to follow the calling convention.
+What command can be used for following library calls?	ltrace
+Where are library calling conventions specified?	In the Application Binary Interface (ABI)
+How to do a syscall in assembly instructions?	- int 0x80 (interrupt with hex value 80, deprecated)<div>- sysenter/sysexit (32-bit)</div><div>- syscall/sysret (x86-64)</div>
+How do you normally do syscalls?	Through a library such as glibc
+What system call does gdb use?	ptrace
