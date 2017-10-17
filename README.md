@@ -12,3 +12,5 @@ To add changes, request write permissions so you can push to the repository.
 Export the deck using Ctrl+E (or File -> Export) and use the 'Export format'
 "Cards in Plain Text" of the deck that you changed.
 
+Please add an `-info.txt` file if you want to add comments on a card deck.
+
