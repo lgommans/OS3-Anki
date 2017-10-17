@@ -5,6 +5,9 @@ made to prepare for the exam by questioning you on the material.
 
 ## How to use
 
+Install Anki if you have not already. It is available in the repositories,
+but that seems to be broken. Download from <https://apps.ankiweb.net/#download>.
+
 With Ctrl+I (or File -> Import) you can import decks. Use "Allow HTML" when
 importing these decks.
 
