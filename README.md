@@ -19,6 +19,7 @@ importing these decks.
 ## Contributing
 
 To add changes, request write permissions so you can push to the repository.
+
 Export the deck using File -> Export. The format "Cards in Plain Text" is
 preferred, but you can use a binary package as well if you have pictures or
 something.
