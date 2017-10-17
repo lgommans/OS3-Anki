@@ -45,3 +45,45 @@ When was MX introduced into DNS?	1986
 What is NNTP?	Network News Transfer Protocol
 When did SURFnet start?	1988
 When was XMPP specified?	1999
+How was a terminal originally connected to a mainframe?	Via a serial connection, ASCII over RS232
+How were remote connections originally made between a mainframe and a terminal?	Via modem (modulator/demodulator)
+What is the point of the CRLF	The carriage return returns the cursor to the beginning of a line; the line feed moves a line down. There were two physical operations to be performed.
+Which software does xterm get its input from?	X server handles keyboard input
+Which two sides does a pseudoterminal have?	A master (/dev/ptmx) and slaves (/dev/pts/0, /dev/pts/1, ...)
+How does a remote computer see a remote connection of a virtual terminal?	As a second virtual terminal
+What is the path from the user at a terminal to a remote shell?	Local virtual terminal (kernel space), ssh client (user space), TCP/IP in kernel space, over a physical medium (e.g. wire), to the TCP/IP stack of the other kernel, to the ssh server (user space), which communicates with the pty master, which communicates with a pty slave, which communicates with the shell running in user space
+Name two examples of shells	sh, bash, zsh, ash, dash, ksh, csh, tsch, ...
+What is shell expansion?	"Expanding shell arguments, for example ""ls $HOME"" will execute ""ls /home/luc"" (or something) and ""mv *.txt /tmp"" executes ""mv a.txt b.txt c.txt /tmp"" (if you have 3 .txt files)."
+What system call is used to start processes?	execve
+How to trace system calls related to network events?	strace -e trace=network &lt;command&gt;
+How to trace system calls related to memory?	strace -e trace=memory &lt;command&gt;
+What does the stat system call do?	It reads a file's status (e.g. its mode, its modification date, etc.)
+What does a shell do before executing the system call to start a binary?	It forks, otherwise it will not survive the execve call.
+Why is the fork system call expensive?	There is lots of copying involved.
+What is vfork()?	"An ""ugly, legacy hack"" which sets some flags on clone()"
+What is clone()?	Forking, sort of. (Can someone edit this please?!) Creates a new PID but is actually a thread.
+What arguments does execve take?	The path to the executable, arguments and environment variables
+What system call can the shell use to sleep until a child finishes?	wait()
+Name important executable file formats and their platforms	"COFF (System V), ELF (SVR4), Mach-O (MacOS), PE/PE32+ (""Portable Executable"", Windows)"
+With what character sequence do interpreter scripts start?	#! interpreter [arguments, optionally]
+What is ld.so and why is it statically linked?	Dynamic linker/loader. It is statically linked because it is the dynamic loader, if it were dynamically linked then it would depend on itself.
+What is the entry point of an ELF?	_start
+How to read the structure of ELF binaries?	readelf
+What are sections used for in an ELF?	linking phase (relocation)
+What are segments used for in an ELF?	loading during runtime (program execution)
+What can objdump do that readelf cannot?	disassemble
+What does nm do?	list symbols defined in an object file
+What is a symbol (in the context of object files)?	A symbolic name of a memory address (of some function or a piece of data)
+What does the strip command do?	It removes symbols from an object file.
+Why would one use the strip command?	To reduce size and hide content
+What does ldd do?	It shows shared object dependencies
+What does lsof do?	Lists open files and show shared objects loaded into address space
+What is the /proc filesystem?	It is an interface to kernel data
+What are the four compilation steps and explain each briefly.	Preprocessing (process macros, e.g. include #includes), compilation (turn the code into assembly), assembly (assemble the object (binary) code from assembly), linking (link the object files into an executable)
+What does a dynamically linked executable usually need in order to run?	Shared Object files (.so)
+What is Position Independent Code (PIC)?	Used by shared objects, dynamically loaded at runtime by the dynamic linker/loader
+Where does _start come from, since you only specify main()?	It is included in files added by the gcc driver, specifically crt1.o
+What is CISC?	Complex Instruction Set Computer
+What is RISC?	Reduced Instruction Set Computer
+Is x86 CISC or RISC?	CISC
+What steps does a CPU constantly cycle through?	Fetch, decode, execute.

@@ -3,6 +3,10 @@
 Anki is open source "flash card" software. The decks in this repository are
 made to prepare for the exam by questioning you on the material.
 
+## Structure of the repository
+
+Most .txt files will be decks. Only `...-info.txt` contain metadata.
+
 ## How to use
 
 Install Anki if you have not already. It is available in the repositories,
