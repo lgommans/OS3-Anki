@@ -1,4 +1,4 @@
 This deck is currently not complete. Only the history and architecture is done.
 
-Computer architecture is missing PAE (slide 57)
+Computer architecture slide 57 is missing (PAE)
 
