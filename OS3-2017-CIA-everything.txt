@@ -87,3 +87,18 @@ What is CISC?	Complex Instruction Set Computer
 What is RISC?	Reduced Instruction Set Computer
 Is x86 CISC or RISC?	CISC
 What steps does a CPU constantly cycle through?	Fetch, decode, execute.
+What units does a CPU have?	registers (local memory), ALU (arithmetic logic unit), CU (control unit: hardwired, microprogrammed), MMU (memory management unit for external memory) and caches
+Which assembly syntax flavours are there?	Intel and AT&amp;T
+How to load 4 into EAX in Intel syntax?	mov eax, 4
+How to load 4 into EAX in AT&amp;T syntax?	mov $4, %eax
+What is an opcode?	intructions working on operands
+How large is a byte, word, dword, qword, dqword/octaword?	byte: 8 bits<div>word: 16 bits</div><div>doubleword: 32 bits</div><div>quadword: 64 bits</div><div>doublequadword/octaword: 128 bits</div>
+What is 256 in little-endian hexadecimal?	0x0001<div>If 0xFF is 255 (same as 0x00FF), then 0x0100 is 256. Convert that to little-endian by swapping around whole bytes: 01 00 -&gt; 00 01.</div>
+What does the call instruction do?	The call instruction pushes the current code location onto memory, then performs a jump to the code location indicated by the operand. Unlike normal jumps, call saves the location to return to when the subroutine completes.
+What does the ret instruction do?	It pops a code location off of the memory stack and returns there. See also the 'call instruction' card.
+How can one call a procedure in a shared library?	This will jump outside your own code and you need to follow the calling convention.
+What command can be used for following library calls?	ltrace
+Where are library calling conventions specified?	In the Application Binary Interface (ABI)
+How to do a syscall in assembly instructions?	- int 0x80 (interrupt with hex value 80, deprecated)<div>- sysenter/sysexit (32-bit)</div><div>- syscall/sysret (x86-64)</div>
+How do you normally do syscalls?	Through a library such as glibc
+What system call does gdb use?	ptrace

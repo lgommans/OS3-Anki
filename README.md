@@ -15,9 +15,18 @@ but that seems to be broken. Download from <https://apps.ankiweb.net/#download>.
 With Ctrl+I (or File -> Import) you can import decks. Use "Allow HTML" when
 importing these decks.
 
-To add changes, request write permissions so you can push to the repository.
-Export the deck using Ctrl+E (or File -> Export) and use the 'Export format'
-"Cards in Plain Text" of the deck that you changed.
 
-Please add an `-info.txt` file if you want to add comments on a card deck.
+## Contributing
+
+To add changes, request write permissions so you can push to the repository.
+Export the deck using File -> Export. The format "Cards in Plain Text" is
+preferred, but you can use a binary package as well if you have pictures or
+something.
+
+Use an `-info.txt` file to comment on a card deck, e.g. give status such as
+"todo: architecture slides 44-64".
+
+If your contributions fit in an existing deck, just add them to that deck. Feel
+free to remove cards (if you're quite sure they're silly), improve cards,
+merge/split cards, etc.
 
