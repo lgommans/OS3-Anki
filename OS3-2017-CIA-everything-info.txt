@@ -1,2 +1,4 @@
-This deck is currently not complete. Only the history and 1/2 of architecture has been included.
-Most of computer architecture done except for PAE (slide 57)
+This deck is currently not complete. Only the history and architecture is done.
+
+Computer architecture is missing PAE (slide 57)
+
