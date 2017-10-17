@@ -1,0 +1,47 @@
+Launch of Sputnik 1?	1957
+In which year was ARPA created?	1958
+When did they start planning ARPANET?	1966
+What was the ARPANET (as opposed to a circuit-switched network)?	Wide-area packet switching network
+When did&nbsp;Leonard Kleinrock do his PhD?	In 1963
+What did Leonard Kleinrock study?	Message switching
+Who studied message switching in 1963?	Leonard Kleinrock
+Who studied packet switching?	Paul Baran in 1964 and Donald Davies in 1965-1966
+Who was Larry Robberts?	Father of the ARPANET, fourth director of IPTO
+What is an IMP	Interface Message Processor
+Who invented the IMP?	Wesley Clark
+When was the first IMP connected and by whom?	1969, as an ARPANET node, by Leonard Kleinrock
+What protocol did ARPANET use in place of IP?	NCP: Network Control Program
+When was the contract given to BBN to build the ARPANET?	January 1969
+Who is the father of RFCs?	Steve Crocker from UCLA
+What was RFC #1 and by whom?	Host Software, by Steve Crocker
+Who invented Unics (later Unix) and when?	Ken Thompson and Dennis Ritchie in 1969
+What were important features of Unics?	Interactive access and time-sharing (multitasking)
+Who made the first TELNET connection and when?	1969 between Kleinrock (UCLA) and Engelbart (SRI, Stanford Research Institute)
+What were the first available protocols?	TELNET and FTP
+Who invented the @ and when?	Thomlinson, 1971
+How was ARPANET email implemented?	Using FTP email subcommands
+What was the MTA on ARPANET?	SNDMSG
+What was the MUA on ARPANET?	READMAIL
+What did Unix V4 add?	Rewritten in C and added pipes
+When was TCP/IP specified and by whom?	1974, Vinton Cenf (Stanford) and Bob Kahn (DARPA)
+Which protocol did TCP/IP replace?	NCP (Network Control Program)
+Which RFC specifies TCP?	"RFC675. It also was the first time the word ""Internet"" was used."
+What is ISO-OSI?	Internation Organization for Standardization - Open System Interconnection
+What was the alternative to ISO-OSI?	TCP/IP (five layer model)
+Who wrote UUCP and in which year / Unix version?	1979, Unix V7
+When was SMTP introduced and in which RFC?	1982, RFC 821
+Who wrote Sendmail and in which year?	Eric Allman, 1982
+What protocol used the bang-path for email routing?	UUCP
+How many hosts did NCP support?	2^8 (256)
+When did the Internet switch to TCP/IP and from what?	In 1983, from NCP
+What is System V?	AT&amp;T's commercial Unix, produced by Bell Labs (specifically USL, Unix System Laboratories)
+What is SVR4?	System V Release 4. A lot of systems were based on this, such as Solaris
+On which Unix was the Single UNIX Specification based?	System V Release 4
+What was the difference between BSD and System V?	Open source (BSD) vs. proprietary (System V)
+What new protocol was specified in 1983? Which RFC?	DNS (RFC 882)
+What did DNS replace?	The HOSTS.TXT file
+What did Paul Mockapetris do?	Specify DNS
+When was MX introduced into DNS?	1986
+What is NNTP?	Network News Transfer Protocol
+When did SURFnet start?	1988
+When was XMPP specified?	1999
