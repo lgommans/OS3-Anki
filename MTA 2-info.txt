@@ -1,5 +1,5 @@
 18-okt-'17:
 
-MTA 2. Does NOT include ABNF and Deflating.
+This is part 2 of MTA. Does NOT include ABNF and Deflating.
 
 TODO: Reset the due dates.
