@@ -1,0 +1,5 @@
+17-okt-'17:
+70 cards about DNS basic and DNS advanced (no DNSSEC). Mind you some cards are done a bit sloppy.
+
+22-okt-'17:
+Improved grammer, removed some bad cards, added some mnemonics, removed scheduling info.
