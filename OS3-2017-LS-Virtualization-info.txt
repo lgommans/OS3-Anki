@@ -1,0 +1,4 @@
+Everything from lecture 1:
+  - slide deck "Virtualization, part 1" (ls-vm-ab113-class1.pdf)
+  - until slide 24, plus things mentioned verbally in the lecture that are not in the slides
+

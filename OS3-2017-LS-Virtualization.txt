@@ -1,0 +1,23 @@
+What is a distributed system?	A collection of autonomous nodes, made to appear as a single, coherent system.
+What must be transparent to have a distributed system appear as a single system?	- distribution transparancy<div>- failure transparancy</div><div>-&nbsp;replication transparancy</div><div>-&nbsp;relocation transparancy</div>
+Why is full distribution transparancy unachieveable?	Communication latencies cannot be hidden, and completely hiding failures is impossible.
+How can you tell whether an operation was performed on a server in a distributed system, if the server crashed before it could send any response?	You cannot.
+Why is it impossible to distinguish between a slow server and a failing one?	The slides assume you'll wait infinitely long. Then, after an infinite amount of time, whenever that might be, you're still unsure as to whether it's going to respond.<div><br></div><div>I'd argue that after 26.6 hours* plus a little time that it needs to formulate a response, the server is either outside our star system or it has failed. You pick.<br><div><br></div><div>* traversing 100au twice, from one end of the Kuiper belt to the other, and 1au = 8 light-minutes<br></div></div>
+What do you trade for full transparency?	Performance. Examples: keeping replicas exactly up-to-date with the master takes time, and&nbsp;immediately flushing write operations to disk for fault  tolerance has costs.
+Place in order of speed:<div>RTT within datacenter</div><div>Disk seek</div><div>Reading RAM entry</div><div>Send 2KB over 1Gbps network</div><div>L1 cache</div><div>Compressing 1KB<br></div>	L1 cache<div>Reading RAM entry</div><div>Disk seek</div><div>Send 2KB over 1Gbps network</div><div>RTT within datacenter</div>
+What are the three dimensions of scale?	Size (number of users, machines and data),<br>Geographical distance, and<div>Administrative distributivity (one owner, many owners, anarchy).</div>
+Name some scaling techniques	Faster machines,<div>Replication (caching is temporary replication),</div><div>Partitioning / sharding,</div><div>Asynchronous communication,</div><div>Virtualization (aggregates physical part into a logical whole)</div>
+What are downsides of scaling up?	Cost does not increase linearly, at some point there is no bigger model, and special hardware is not very well tested.
+How does Google® Search work?	1. Find documents matching the query, returns &lt;docid, score&gt;.<div>2. Get document info and turn it into a &lt;title, snippet&gt;.</div><div>3. Generate HTML.</div>
+What is one gotcha when using caching?	Big latency spikes / capacity drops when indexes are updated or the cache is flushed.
+What is the AKF Scale Cube?	"Your starting point is at (0,0,0) and ""near infinite scale"" is at (1,1,1). The X axis is horizontal duplication (replication), the Y axis is service partitioning, and the Z axis is data partitioning."
+What is virtualization?	Hiding physical characteristics of computing resources from those interacting with the resources (be it a user, another system or an application).
+What are some advantages of virtual machines?	They can spin up on demand,<div>They isolate applications,</div><div>They sandbox applications for security,</div><div>They support different OSes concurrently,</div><div>They allow for testing with a known state,</div><div>...</div>
+What's an ISA?	<div>Instruction Set Architecture. For example x86_64. The collection of instructions that software can send to hardware.</div>
+What is ring -1?	A ring later added to provide hypervisors with better control. It's another privilege level below ring 0.
+What is the ISA split up into?	Privilege levels. Ring 0 consists of things only to be accessed by a kernel; ring 3 can be accessed by any user application. In between, both rings are for device drivers.
+What can system ISA instructions do?	Manage system resources (memory, storage, other I/O), fair allocation between user programs, setting traps, changing to user mode...
+How does a user application do a system call?	"Using the syscall instruction is caught by a trap (a.k.a. ""software interrupt""). The kernel then handles the system call, and performs any necessary I/O instructions."
+What is the function of libc?	It is a library which provides a convenient interface to system calls.
+What triggers hardware to switch to kernel mode?	An interrupt (example: keystroke), trap (exa: timer expired) or fault (exa: divide by zero)
+How can a user application do privileged instructions on hardware?	Through the operating system.
