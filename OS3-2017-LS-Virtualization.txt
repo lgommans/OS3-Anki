@@ -21,3 +21,5 @@ How does a user application do a system call?	"Using the syscall instruction is 
 What is the function of libc?	It is a library which provides a convenient interface to system calls.
 What triggers hardware to switch to kernel mode?	An interrupt (example: keystroke), trap (exa: timer expired) or fault (exa: divide by zero)
 How can a user application do privileged instructions on hardware?	Through the operating system.
+What is it called when you use multiple channels to get a single, higher-bandwidth link?	Channel bonding
+What is the purpose of a VLAN?	Multiple logical networks on same physical wires
