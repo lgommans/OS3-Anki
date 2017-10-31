@@ -1,0 +1,41 @@
+Name the 7 OSI layers and give example protocols for layers 2, 3 and 4.	7 application<div>6 presentation</div><div>5 session</div><div>4 transport (TCP/UDP)</div><div>3 network (IP)</div><div>2 (data) link (Ethernet)</div><div>1 physical</div>
+What is an interface and what travels over it?	It's something to connect on the same computer, between layers. SDUs travel over it: Service Data Units.
+What's a SAP?	A Service Access Point is an API provided by a layer. For example the data link layer will provide an interface to the network layer, such that it can send messages through it. Conversely, the network layer provides an interface to the link layer such that it can receive messages from it.
+What is a protocol used for?	Communicating within a layer. For example if layer 4 on the transmitting machine talks TCP, then the receiving machine's layer 4 will also have to talk TCP.
+What is a PDU?	Protocol Data Unit: the protocol data, consisting of headers and payload. It operates within a layer.
+What is added to an SDU when passing it to a lower layer?	Control information for the lower layer.
+What is multiplexing in INR context?	Multiple data streams over a shared lower level. For example, the physical medium can send many IP addresses through it, and one IP address can receive multiple TCP connections, etc.
+What is inverse (de)multiplexing?	When multiple lower layers are used for a single higher layer, for example two physical cables for a single TCP connection.<div><br /><div>Normal (de)multiplexing works the other way around: many TCP connections over one physical cable. Of course, with inverse (de)multiplexing it can still have multiple TCP connections, but a single TCP connection's packet is not guaranteed to be transmitted completely over a single cable.</div></div>
+What is an address (in a network graph)?	A locator used in routing
+What is an explicit network element in a network graph?	A node (not an edge)
+What distinction is missing in Internet architecture?	The distinction between addresses and endpoints. An interface has an address, not an endpoint.
+What is a bipartite graph?	A graph divided in two sections, where edges run between nodes in different sections, but edges never connect two nodes that are in the same section.
+How to write this with only Layer 2 traffic?<div>(Host)---L3---(Network)---L3---(Host)</div>	(Host)---L2---(Network)---L2---[Bridge]---L2---(Network)---L2---(Host)
+What is routing?	Delivering packets to an address, using hops in intermediate networks. It can be done on all layers, not only the network layer, for example ethernet frame switching is also routing.
+What are two common routing techniques?	Table lookup of next hop, or forwarding port.
+What is ILNP?	Identifier-Locator Network Protocol<div>Uses an I-LV (Identifier-Locator Vector) instead of IP address.</div><div>Can run over IPv6 by using the first 64 bits as locator and second 64 bits as identifier. Over v4 it uses the address as locator, and some option contains the 64-bit identifier.</div>
+What is LISP?	Locator/Identifier Separation Protocol<div>Differentiates between an EID (Endpoint IDentifier) and RLOC (Routing LOCator). Packets go through a tunnel router which routes the RLOCs. EIDs are encapsulated within those packets. The mapping is maintained in a distributed database.</div>
+What are principles of HIPv2?	It uses public keys as Host Identifier (HI) and always does a DH KEX (with puzzle to defeat DoS). It then builds an IPsec association between HIs (not between IP addresses).
+What does the weak end-system model not do?	Discard datagrams whose destination does not correspond to the physical interface through which it is received.
+Of which two parts does an IPv4 address comprise?	A network part and a host part (in that order).
+What is 0b1100 in decimal?	12
+What is 9 in binary?	1001
+What is the difference between classful and classless routing?	Networks were initially divided in classes, where class A is any address starting with a binary zero; class B starts with 10; class C starts with 110, etc. Each class reduces the size of the networks within: class A contains /8 networks, class B contains /16 networks, and class C contains /24 networks.Classes D and E have no networks defined within.<div>Classless routing is the modern approach (modern, because it was proposed in 1993), which everyone has been using since the mid 90s, where this class system is just bullshit. If I want to have 1.1.0.0/16, that's just fine and it doesn't matter that it falls in class A and was historically a /8 network.</div>
+What is the 0.0.0.0 address for?	"""Address unknown"". May only be used as a source address.<div><br /></div><div>Note that in practice, it's used for many more things. But don't tell Karst.</div>"
+What kind of address has all the host bits set to zero?	The network identification
+What value does the host part have in a broadcast address?	All bits are set to 1.
+What is the 255.255.255.255 address?	The local (sub)net broadcast address.
+"When are you ""on the Internet""?"	When you have a globally routeable/reachable IP address.
+What is a packet?	A string of bits.
+What is the issue with endpoints having no names?	When you are mobile and move between networks, you lose connectivity.
+What is an IP address assigned to?	An interface (not the host itself).
+What is the difference between the router and a host?	Hosts are on the edges and used for applications.<br />Router is in the 'middle', dedicated to connect hosts. Acting on layer 3.
+Why is the internet resilient?	Because there are multiple paths between networks. Each node can reach another through different paths, so a single path can fail without disconnecting a network part.
+What is the difference between an endpoint and an interface?	A host is the endpoint; an interface has an address
+What kind of interface is the loopback interface?	A software interface. It refers to the machine itself. One could call it an anycast address because it goes to the nearest machine (which is yourself).
+What is multicast used for?	Sending messages to a group, such as IPTV.
+What is broadcast used for?	Sending a message to all nodes in a network, for example an air alarm.
+What is anycast?	Send a message to the most nearby host with a given address.
+What range is used for link-local dynamic autoconfiguration?	169.254.0.0/16
+What is link-local dynamic autoconfiguration used for?	Connect to other nodes in the network when there is no router.
+What are the local IP ranges and how many networks is each supposed to have according to classful routing?	10/8 with 1 network<div>172.16/12 with 16 networks</div><div>192.168/16 with 256 networks</div><div>169.254/16 with 1 network (exception)</div>

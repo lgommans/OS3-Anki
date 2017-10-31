@@ -1,0 +1,4 @@
+Everything from lecture 1:
+  - slide deck "Overview" (overview.pdf)
+  - until slide 36, plus things mentioned verbally in the lecture that are not in the slides
+
