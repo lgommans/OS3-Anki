@@ -62,7 +62,7 @@ What are the two purposes of an IPv4 address in the current Internet architectur
 What are non-contiguous network masks?	A network mask where the ones are not contiguous from the start. For example 255.0.0.0 is 1111 1111.0000etc, so that is contiguous. But 88.0.0.0 is 0101 1000.0000etc so that is non-contiguous.
 How many possible subnet masks are there, when one only allows contiguous masks?	33 (/0, /1, ..., /32)
 Are all-zeroes and/or all-ones subnets allowed?	Not in RFC950, but in general yes.
-How many networks and hosts are there in a class C with the subnet mask 25.255.255.88?	88=0101 1000. There are three network bits and five host bits. TODO elaborate
+How many networks and hosts are there in a class C with the subnet mask 255.255.255.88?	88=0101 1000. There are three network bits and five host bits. TODO elaborate
 What is VLSM?	Variable Length Subnet Masks uses subnets that are not necessarily all of the same size. For example you can have a /8 allocated to some $BigCorp, and it can allocate a /16 to departments, which might have smaller /22 subnets for different purposes or something.<div>In classful routing, one could only have a /8, /16 or /24 (depending on whether you are 1-127.x.x.x, 127-191.x.x.x or 192-224.x.x.x).</div>
 What does RIPv1 not support?	VLSM
 What is CIDR?	Classless Inter-Domain Routing is the idea to put the division between the network part and host part of addresses on arbitrary bit positions. It uses the / notation (0.0.0.0/0) and obsoletes classful addressing and VLSM.
