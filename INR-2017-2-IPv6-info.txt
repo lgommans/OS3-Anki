@@ -1,5 +1,5 @@
 Slides from ipv6.pdf
-status: in progress, now at slide 41/57
+status: done-ish
 
 Notes:
 	- skipped slide 17 allocations to ARIN/APNIC/RIPE/... Seems too specific to have to know by heart.
@@ -7,5 +7,6 @@ Notes:
 	- skipped on slide 20: "fec0::/10 (Site-local addresses; deprecated)" (deprecated) and "fe80::/10 (Link-local addresses)" (should be known)
 	- slide 23 I left a few out because I think he'd only ask the important ones.
 	- slide 30 ICMPv6 types used for NDP
-
+	- don't understand slide 42 (and skipped the related 43)
+	- skipped some of the remaining ones until the last because of various reasons
 
