@@ -1,0 +1,17 @@
+At which layer does a hub operate and what is another word for it?	Physical; multiport repeater.
+What forms a LAN/link segment?	A network connectd by hubs and/or repeaters. Notably *not* switches.
+What forms a LAN/link?	A network connected by bridges and/or switches.
+What is the difference between hubs and switches, or between repeaters and bridges?	A repeater has a single collision domain; a bridge has a single broadcast domain.
+Which sublayers does layer 2 have?	MAC (Media Access Control) and LLC (Logical Link Control). MAC is the lower one and its most important example is Ethernet with CSMA/CD. Ethernet also controle backoff and retransmission. LLC introduces new fields (see another card).
+What fields does LLC introduce?	DSAP, SSAP and 1 or 2 control bytes. SAP stands for Service Access Point and D/S for destination/source.
+What does the DIX Ethernet / Ethernet II header look like?	- 7 bytes preamble, 1 byte Start Frame Delimiter (SFD)<div>- Destination and source address (2×6 bytes)</div><div>- Type (2 bytes)</div><div>- PDU (perhaps with padding)</div><div>- FCS (CRC)</div>
+What's the minimum and maximum size of a PDU in DIX Ethernet?	46 - 1500 bytes
+What is the OUI?	Orgizationally Unique Identifier
+What bits are special in a MAC address?	I/G bit (individual/group) and U/L (universal/local), the first and second bit on the wire because it is sent in LSB format (least significant bit first), or the last two bits of the first byte.
+How can one embed an EUI-48 in EUI-64?	Paste FF:FE in the middle:<div>00:30:65:7E:9D:5E ⇒ 00:30:65:FF:FE:7E:9D:5E<br></div>
+How can one embed an MAC-48 in EUI-64?	Paste FF:FF in the middle:<div>00:30:65:7E:9D:5E ⇒ 00:30:65:FF:FF:7E:9D:5E<br></div><div><br></div><div>But since they are obsolete, you can really just do whatever and could paste FF:FE in there as well.</div>
+How to put a MAC address, ahem, EUI-64 in an IPv6 address?	Flip the U/L bit (from 0 to 1 in the example). Locally assigned IPv6 addresses do the reverse.
+TODO slide 17 you can't do the reverse of a flip + why set the bit to universal when you locally administer it + why skip bits 64-71 when creating a ... a what?	
+What are common ethernet types?	0x800 for IP, 0x806 for ARP and 0x86DD for IPv6
+What's a no-frill?	A stupid switch, which just copies frames to separate the collision domain. Uses store and forward technique. The opposite is a learning and filtering switch/bridge, which remembers on which port a station resides. This builds a filtering database.
+What's a VLAN?	Virtual LAN, where LAN stands for Local Area Network. The ethertype is 0x8100. It separates a physically bridged LAN into multiple logical/virtual LANs.
