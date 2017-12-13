@@ -1,0 +1,21 @@
+What does RIP stand for?	Routing Information Protocol
+What algorithm is RIPv1 based on?	Bellman-Ford distance vector algorithm
+What is an IGP? Is RIP an IGP?	Interior Routing Protocol. Yes.
+What is the maximum hop distance of RIP?	15 hops, i.e. 16 == infinity
+What is the basic operation of RIPv1?	It keeps a table of routes to destination networks, keeping the distance (metric) and gateway (next hop). It periodically sends out this table (sans gateways) to all neighbours. It will update the table with newly collected information (metric can only decrease, unless the information comes from the gateway itself and it overrides old information).
+What measures does RIPv1 take against counting to infinity?	Both split horizon and poisoned reverse.
+What is a disadvantage of poisoned reverse?	Larger routing update packets
+How long does it take for information to spread through a network using RIPv1?	Each router will send its neighbours updates every 30 seconds (by default), thus it depends on how many routers and when their timer expires.
+What timers does RIPv1 have, what's a default, and what do they do?	Update timer: interval between sending updates. Default 30 seconds.<div><br><div>Invalid timer: if no updates are received for a route within &lt;time&gt;, set hop count to infinity. Default 180 seconds.</div></div><div><br></div><div>Flush timer AKA garbage-collection timer: remove routes after they have been invalid for a while. Default: 240 seconds.</div><div><br></div><div>Hold-down timer: Cisco's addition, does not accept updates during hold-down on routes that have been marked unreachable. Default: 180 seconds.</div>
+What are RIPv1 packets sent to?	IP 255.255.255.255, or to a directed broadcast address, or to an individual host or router as a response to a request.
+What's the port/proto for RIPv1?	520/udp
+What is the maximum size of a RIPv1 packet and how many updates fit in there?	512 bytes, fits 25 route updates (each update is 20 bytes)
+What's in a RIPv1 packet?	Length in bytes; contents:<div>1; Command (request=1, response=2)</div><div>1; Version (=1)</div><div>2; Reserved (0)</div><div>2; Address Family Identifier (=2 for IP)</div><div>2; Reserved (0)</div><div>4; IP address (network)</div><div>8; Reserved (0)</div><div>4; Metric (max 16=infinity)</div><div><br></div><div>This can be repeated at most 25 times.</div>
+TODO ripv1 subnets, slide 17	
+What is IGRP?	Interior Gateway Routing Protocol, by Cisco. Uses a distance vector protocol. Basically same as RIP, except it runs on top of IP (protocol 9), has a larger notion of infinity (typically 100, max 255) and accepts up to 4 parallel paths.
+What are autonomous systems in IGRP?	Independent domains. Not the same as IANA-registered ASes. IGRP autonomous systems are connected together with static (or redistributed) routes.
+What types of routes does IGRP have?	Interior (with implicit subnet information, like RIPv1), system route (which is possibly summarized), and exterior (acting as a configured candidate default).
+What metrics does IGRP communicate to neighbours?	A composite metric, based on delay, bandwidth, reliability and load. The hop count is still communicated as a separate field to see when infinity has been reached. It also communicates MTU information about the path.
+What is EIGRP?	Enhanced Interior Gateway Routing Protocol. Also Cisco proprietary, but in RFC 7868 for informational purposes. It runs as protocol 88 on top of IP.
+What algorithm does EIGRP use?	DUAL, for loop-free routing and fast convergence.
+What are some advantages of EIGRP?	- It uses partial and incremental updates when the routing table changes.<div>- It uses hello multicast packets to discover neighbours (IP 224.0.0.10).</div><div>- It uses ACKs for reliable communication.</div><div>- It can summarize on arbitrary bit boundaries (classless).</div>
