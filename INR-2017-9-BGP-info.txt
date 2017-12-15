@@ -1,0 +1,5 @@
+Slides from bgp.pdf
+status: in progress, now at slide 15/73
+
+Credits to Isaac for this set so far!
+

@@ -1,0 +1,8 @@
+On which network routing protocol is BGP based?	Path vector routing protocol. Path vector routing is in between distance vector and link state routing.
+What is an Autonomous System (AS)?	A connected group of networks and routers representing some assigned set of IP prefixes and having a single, consistent routing policy both internally and externally.
+What is the relation between a customer and a provider?	A provider provides his customers with access to networks that are not otherwise connected to the customer. The customer pays the provider for traffic to and from the provider.
+What is a peer? (in the context of customers and providers)	A horizontal relation between two neighbors that allows traffic to flow between them without going trough the providers.
+What is the order of preference for incoming route advertisements?	1: Customers (the customer pays for traffic to and from)<div>2: Peers (the cost for the connection is generally split between the peers)</div><div>3: Providers (traffic to and from the provider costs money)</div>
+Is it wise to advertise&nbsp;provider or peer routes<div>to other providers or peers?</div>	No. Outgoing route advertisements attract incoming traffic for which you have to pay.
+Is it wise to advertise all routes to customers?	Yes. The customer pays for the traffic.
+Is it wise to advertise customer routes to providers and peers?	Yes
