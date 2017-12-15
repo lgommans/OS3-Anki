@@ -1,1 +1,2 @@
-done until slide 29 (RIPv2). See also the TODO in one of the cards (just grep the cards file).
+Status: done.
+See also the TODO in one of the cards (just grep the cards file).

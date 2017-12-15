@@ -10,7 +10,7 @@ What timers does RIPv1 have, what's a default, and what do they do?	Update timer
 What are RIPv1 packets sent to?	IP 255.255.255.255, or to a directed broadcast address, or to an individual host or router as a response to a request.
 What's the port/proto for RIPv1?	520/udp
 What is the maximum size of a RIPv1 packet and how many updates fit in there?	512 bytes, fits 25 route updates (each update is 20 bytes)
-What's in a RIPv1 packet?	Length in bytes; contents:<div>1; Command (request=1, response=2)</div><div>1; Version (=1)</div><div>2; Reserved (0)</div><div>2; Address Family Identifier (=2 for IP)</div><div>2; Reserved (0)</div><div>4; IP address (network)</div><div>8; Reserved (0)</div><div>4; Metric (max 16=infinity)</div><div><br></div><div>This can be repeated at most 25 times.</div>
+What's in a RIPv1 packet?	Length in bytes; contents:<div>1; Command (request=1, response=2)</div><div>1; Version (=1)</div><div>2; Reserved (0)</div><div>2; Address Family Identifier (=2 for IP)</div><div>2; Reserved (0)</div><div>4; IP address (network)</div><div>8; Reserved (0)</div><div>4; Metric (max 16=infinity)</div><div><br /></div><div>The fields after (not including) the first reserved field, can be repeated at most 25 times.</div>
 TODO ripv1 subnets, slide 17	
 What is IGRP?	Interior Gateway Routing Protocol, by Cisco. Uses a distance vector protocol. Basically same as RIP, except it runs on top of IP (protocol 9), has a larger notion of infinity (typically 100, max 255) and accepts up to 4 parallel paths.
 What are autonomous systems in IGRP?	Independent domains. Not the same as IANA-registered ASes. IGRP autonomous systems are connected together with static (or redistributed) routes.
@@ -19,3 +19,15 @@ What metrics does IGRP communicate to neighbours?	A composite metric, based on d
 What is EIGRP?	Enhanced Interior Gateway Routing Protocol. Also Cisco proprietary, but in RFC 7868 for informational purposes. It runs as protocol 88 on top of IP.
 What algorithm does EIGRP use?	DUAL, for loop-free routing and fast convergence.
 What are some advantages of EIGRP?	- It uses partial and incremental updates when the routing table changes.<div>- It uses hello multicast packets to discover neighbours (IP 224.0.0.10).</div><div>- It uses ACKs for reliable communication.</div><div>- It can summarize on arbitrary bit boundaries (classless).</div>
+What does RIPv2 have extensions for?	- Subnet masks<div>- Alternate next hop</div><div>- Authentication</div><div>- Multicasting</div><div>- Route tags</div>
+What's the packet format of RIPv2?	Bytes; value<div>1; command (1=request, 2=response)</div><div>1; version (=2)</div><div>2; Reserved (must be 0)</div><div>2; Address Family Identifier (=2=IP)</div><div>2; Route Tag (identification of route origin)</div><div>4; IP address (network)</div><div>4; Subnet Mask (CIDR support)</div><div>4; Next Hop (gateway, if different from advertising router)</div><div>4; Metric (16=inf)</div><div><br /></div><div>The fields after (not including) reserved, can be repeated up to 25 times.</div>
+How does authentication work in RIPv2?	AFI is set to 0xFFFF, followed by the authentication type (2 bytes) and then the authentication data follows. Auth type 2 is plaintext password, type 3 means use of some crypto.
+What does each hop do with the route tag field of RIPv2 and what is its purpose?	It is simply carried along. It diffrentiates between internally and externally generated routes.
+What is the Next Hop field for in RIPv2?	Used when best next hop does not speak RIP itself
+What is the destination of RIPv2 packets?	The broadcast address was replaced by a multicast address, the same as EIGRP: 224.0.0.9 (which is not forwarded).
+What protocol stack does RIPng use?	IPv6 -&gt; UDP port 521
+What feature did RIPng remove?	Authentication, since that can be done at IP level with IPv6.
+What's the maximum length of RIPng packets?	Any length that fits inside the network unfragmented
+What destination address does RIPng use?	ff02::9, the all-rip-routers mcast address.
+What is the packet format of RIPng?	Length in bytes; value<div>1; command (1=request, 2=response)</div><div>1; version (=1, because it's the first version of the new protocol RIPng)</div><div>2; reserved (must be 0)</div><div>16; IPv6 prefix</div><div>2; route tag</div><div>1; prefix length (number of bits that is the network portion)</div><div>1; metric (16=inf)</div><div><br /></div><div>Fields `prefix` through `metric` can be repeated.</div>
+How can one set the next hop in RIPng?	Put the next hop in place of the prefix and fill the remaining fields (route tag, prefix length and metric) with 0x0000, 0x00 and 0xff. The prefixes following will use this next hop. One can reset t he next hop using ::.
