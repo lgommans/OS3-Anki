@@ -1,0 +1,21 @@
+<div>What nice properties does MOM have?</div>	Message Oriented Middleware:<div>- Asynchronous (send/receive decoupled; destination need not be online)</div><div>- (Re)location transparancy (queue and IP decoupled)</div><div>- Can be one-to-one or one-to-many</div>
+What's CAP?	"Consistency<div>Availability</div><div>Partition resistance</div><div><br></div><div>""it is impossible for a <a href=""https://en.wikipedia.org/wiki/Distributed_data_store"">distributed data store</a> to simultaneously provide more than two""</div>"
+Fault tolerance requirements	Availability (ready to be used)<div>Reliability (runs without failure)</div><div>Safety (temporary failures are not catastrophic)</div><div>Maintainability (easy to repair)</div>
+Fault tolerance metrics	Availability (X nines)<div>Reliability (MTBF)</div><div>Maintainability (MTTR)</div>
+How can you mask failures by redundancy?	"Physical redundancy<div>Information redundancy (error detection and correction)</div><div>Time redundancy (""performing the same operation multiple times such as multiple executions of a program or multiple copies of data transmitted"")</div><div>Software redundancy (N-version programming)</div>"
+How to handle n crash failures?	n+1 replicas
+For what do you need 2n+1 replicas?	Byzantine failures (e.g. wrong answers), so that you have n+1 good replicas to outvote n bad ones.
+How to account for lost responses from a server?	Idempotent requests. Then it doesn't matter whether it arrived or got executed: if you didn't get a response, just send the request again.
+What is idempotency?	An action can be repeated without altering state or having side-effects.
+What's a downside of an idempotent request?	You need to keep server state to check whether it was processed already.
+What can go wrong with RPCs?	1. Client cannot locate server;<div>2. Request is lost;</div><div>3. Server crashes after receiving request;</div><div>4. Reply is lost;</div><div>5. Client crashes after sending request.</div>
+What's the diff between a hierarchical server group and a flat server group?	With a hierarchical group, one server propagrates; with a flat group, the client has to send a message to all nodes because one is not responsible for propagating it to the others.
+What is fault isolation?	Preventing the whole system from failing when a component fails.
+What is a failure domain?	All the shit that fails when one thing fails. Yes, indeed, you'll want to have failure domains as small as possible: if your public website falls over, there's no need for it to take your internal Windows domain with it.
+What are swim lanes?	"A completely normal English expression for a bunch of things, which Arno additionally and unnecessarily overloaded to also mean ""failure domain""."
+What are some consistency models?	Linearizability (clients see atomic writes in same order);<div><div>Sequential consistency (clients see writes in same order);</div></div><div>Causal consistency (see causally related writes in same order);<br></div><div>Eventual consistency (if few or solvable write conflicts, eventually it converges).<br></div>
+Name some replication protocols	Primary/backup;<div>Active replication (all replicas perform same writes);</div><div>Quorum-based (majority vote thingy, where you read from X nodes and write to Y, where X+Y&gt;N and Y&gt;N/2 and N=number of nodes).</div>
+What are some common techniques for finding replicas?	Globally: anycast or DNS redirection.<div>Locally: load balancer or DNS round robin.</div>
+What is caching?	Replicate temprarily.
+What are two ways of partitioning?	Hierarchically or formulaically.
+How does HDFS work?	Data nodes report what they have to a name node. The name node is the SPOF and you can either do active/standby (fast) or primary/secondary (slow).

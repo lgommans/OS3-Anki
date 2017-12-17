@@ -1,0 +1,1 @@
+Cards from random slide decks, but *not* from virtualization or services (ITIL). Mainly fault tolerance slides, iirc.
