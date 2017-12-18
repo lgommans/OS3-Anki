@@ -1,0 +1,7 @@
+When is a service valuable?	When it does something (utility) and it's working (warranty).
+How to do service design?	Turn utility and warranty requirements into Service Level Requirements. Those are analysed by the IT department for feasibility, and they create a functional and technical design.
+What's in an SLA?	Service description, service level targets (service hours, availability, reliability, response time, etc.), support, reporting and reviews.
+What's a SLAM chart?	SLA Monitoring chart.
+What's a service design package (SDP)?	ITIL term for all information required to decide whether to go ahead with the transition of the service. This includes functional requirements, service level requirements, organizational readiness assessment, plan for introducing the service, and acceptance criteria.
+What's a change proposal and who writes it?	The sysadmin writes it and it includes what gets changed, the reason for it, the risks, test results, success criteria, backout plan, change duration, etc.
+What are some Launch Readiness Criteria?	Monitoring in place,<div>backups and restores tested,</div><div>access control tested,</div><div>SLA defined,</div><div>etc.</div>
